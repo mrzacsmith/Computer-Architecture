@@ -1,9 +1,10 @@
-class Render {
+class Renderer {
   constructor(scale) {
     this.cols = 64
     this.rows = 32
 
     this.scale = scale
+
     this.canvas = document.querySelector('canvas')
     this.ctx = this.canvas.getContext('2d')
 
@@ -26,10 +27,11 @@ class Render {
       y += this.rows
     }
 
-    let pixelLocation = x + y * this.cols
-    this.display[pixelLocation] ^= 1
+    let pixelLoc = x + y * this.cols
 
-    return !this.display[pixelLocation]
+    this.display[pixelLoc] ^= 1
+
+    return !this.display[pixelLoc]
   }
 
   clear() {
@@ -51,4 +53,4 @@ class Render {
   }
 }
 
-export default Render
+export default Renderer
