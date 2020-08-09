@@ -1,5 +1,7 @@
 import Renderer from './renderer.js'
+import Keyboard from './keyboard.js'
 const renderer = new Renderer(12)
+const keyboard = new Keyboard()
 
 let loop
 
