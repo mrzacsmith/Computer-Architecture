@@ -1,3 +1,5 @@
+import sys
+
 PRINT_STATEMENT = 1
 HALT = 2
 SAVE_REGISTER = 3
@@ -5,24 +7,38 @@ PRINT_REGISTER = 4
 ADD = 5
 
 
-memory = [
-    1,  # PRINT STATEMENT
-    3,  # SAVE_REGISTER R2,64
-    2,  # R2
-    64,  # 64
-    4,  # PRINT REGISTER R2
-    2,  # R2
-    3,  # SAVE_REGISTER R3,55
-    3,  # R3
-    55,  # 55
-    4,  # PRINT REGISTER R3
-    3,  # R2
-    2   # HALT
-]
+# memory = [
+#     1,  # PRINT STATEMENT
+#     3,  # SAVE_REGISTER R2,64
+#     2,  # R2
+#     64,  # 64
+#     4,  # PRINT REGISTER R2
+#     2,  # R2
+#     3,  # SAVE_REGISTER R3,55
+#     3,  # R3
+#     55,  # 55
+#     4,  # PRINT REGISTER R3
+#     3,  # R2
+#     2   # HALT
+# ]
 
 statement = 'LS-8'
-
+memory = [0] * 256
 register = [0] * 8
+
+# ----------- LOAD PROGRAM ------------------
+
+with open('prog1') as f:
+    for line in f:
+        line = line.split("#")
+        value = int(line[0])
+
+        print(value)
+
+sys.exit(0)
+
+
+# ------------ RUN LOOP -----------------
 
 program_counter = 0
 
