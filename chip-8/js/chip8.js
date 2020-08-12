@@ -20,8 +20,8 @@ const init = () => {
   startTime = then
 
   // TESTING CODE. REMOVE WHEN DONE TESTING.
-  // renderer.testRender()
-  // renderer.render()
+  renderer.testRender()
+  renderer.render()
   // END TESTING CODE
 
   loop = requestAnimationFrame(step)

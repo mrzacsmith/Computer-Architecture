@@ -1,3 +1,10 @@
+PRINT_STATEMENT = 1
+HALT = 2
+SAVE_REGISTER = 3
+PRINT_REGISTER = 4
+ADD = 5
+
+
 memory = [
     1,  # PRINT STATEMENT
     3,  # SAVE_REGISTER R2,64
@@ -24,25 +31,32 @@ running = True
 while running:
     instruction = memory[program_counter]
 
-    if instruction == 1:  # PRINT_STATEMENT
+    if instruction == PRINT_STATEMENT:  # PRINT_STATEMENT
         print(statement)
         program_counter += 1
 
-    elif instruction == 2:  # HALT
+    elif instruction == HALT:  # HALT
         running = False
 
-    elif instruction == 3:  # SAVE_REG
+    elif instruction == SAVE_REGISTER:  # SAVE_REG
         register_num = memory[program_counter + 1]
         value = memory[program_counter + 2]
 
         register[register_num] = value
         program_counter += 3
 
-    elif instruction == 4:  # PRINT_REGISTER
+    elif instruction == PRINT_REGISTER:  # PRINT_REGISTER
         register_num = memory[program_counter + 1]
         print(register[register_num])
 
         program_counter += 2
 
+    elif instruction == ADD:
+        register_num1 = memory[program_counter + 1]
+        register_num2 = memory[program_counter + 2]
+        register[register_num1] += register[register_num2]
+        program_counter += 3
+
     else:
-        print(f'Unknow instruction')
+        print(f'Unknow instruction {instruction} at address {program_counter}')
+        sys.exit(1)
