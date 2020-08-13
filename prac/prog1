@@ -9,4 +9,7 @@
 55  # 55
 4  # PRINT REGISTER R3
 3  # R2
+3  # SAVE_REGISER R5
+5  # R5
+21  # 21
 2   # HALT
